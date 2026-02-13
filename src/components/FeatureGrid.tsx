@@ -33,32 +33,32 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ onSelectTool }) => {
     // Code Utilities
     {
       id: 'diff-viewer',
-      title: "Diff Viewer",
-      description: "Compare text or code changes line by line.",
+      title: t.tools.diffViewer.title,
+      description: t.tools.diffViewer.desc,
       icon: <GitCompare className="w-6 h-6" />,
-      category: 'Data & Converters', // Ideally create new category code-utils
+      category: 'Data & Converters',
       color: 'orange'
     },
     {
       id: 'base64',
-      title: "Base64 Converter",
-      description: "Encode and decode text strings instantly.",
+      title: t.tools.base64.title,
+      description: t.tools.base64.desc,
       icon: <Binary className="w-6 h-6" />,
       category: 'Data & Converters',
       color: 'blue'
     },
     {
       id: 'uuid-gen',
-      title: "UUID Generator",
-      description: "Generate UUIDs, NanoIDs, and unique identifiers.",
+      title: t.tools.uuidGen.title,
+      description: t.tools.uuidGen.desc,
       icon: <Fingerprint className="w-6 h-6" />,
       category: 'Data & Converters',
       color: 'purple'
     },
     {
       id: 'cron-parser',
-      title: "Cron Jobs",
-      description: "Translate cron expressions into human-readable text.",
+      title: t.tools.cronParser.title,
+      description: t.tools.cronParser.desc,
       icon: <Clock className="w-6 h-6" />,
       category: 'Data & Converters',
       color: 'red'
@@ -67,22 +67,22 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ onSelectTool }) => {
     // Network
     {
       id: 'curl-converter',
-      title: "CURL to Code",
-      description: "Convert CURL commands to Fetch, Axios, or Python.",
+      title: t.tools.curlConverter.title,
+      description: t.tools.curlConverter.desc,
       icon: <Terminal className="w-6 h-6" />,
       category: 'Data & Converters',
       color: 'indigo'
     },
     {
       id: 'http-status',
-      title: "HTTP Cats/Dogs",
-      description: "Visual guide to HTTP status codes with pets.",
+      title: t.tools.httpStatus.title,
+      description: t.tools.httpStatus.desc,
       icon: <Cat className="w-6 h-6" />,
       category: 'Data & Converters',
       color: 'amber'
     },
 
-    // Core / AI
+    // Core / AI (Refactored to No-AI)
     {
       id: 'sql-crud',
       title: t.tools.sqlMapper.title,
@@ -143,24 +143,24 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ onSelectTool }) => {
     },
     {
       id: 'grid-generator',
-      title: "Grid Generator",
-      description: "Visual CSS Grid layout builder.",
+      title: t.tools.gridGenerator.title,
+      description: t.tools.gridGenerator.desc,
       icon: <LayoutGrid className="w-6 h-6" />,
       category: 'CSS & UI',
       color: 'cyan'
     },
     {
       id: 'keycode-info',
-      title: "Keycode Info",
-      description: "Instant JavaScript event keycodes.",
+      title: t.tools.keycodeInfo.title,
+      description: t.tools.keycodeInfo.desc,
       icon: <Keyboard className="w-6 h-6" />,
       category: 'CSS & UI',
       color: 'lime'
     },
     {
       id: 'clip-path',
-      title: "Clip Path Maker",
-      description: "Create complex shapes with CSS clip-path.",
+      title: t.tools.clipPath.title,
+      description: t.tools.clipPath.desc,
       icon: <Scissors className="w-6 h-6" />,
       category: 'CSS & UI',
       color: 'fuchsia'
@@ -176,8 +176,8 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ onSelectTool }) => {
     },
     {
       id: 'json-toon',
-      title: "JSON to TOON",
-      description: "Convert JSON to Token-Oriented Object Notation to save LLM tokens.",
+      title: t.tools.jsonToon.title,
+      description: t.tools.jsonToon.desc,
       icon: <FileCode className="w-6 h-6" />,
       category: 'Data & Converters',
       color: 'pink'
@@ -199,6 +199,22 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ onSelectTool }) => {
       color: 'rose'
     },
     // SEO & Content
+    {
+      id: 'web-analyzer',
+      title: t.tools.webAnalyzer.title,
+      description: t.tools.webAnalyzer.desc,
+      icon: <Search className="w-6 h-6" />,
+      category: 'SEO & Content',
+      color: 'pink'
+    },
+    {
+      id: 'color-extractor',
+      title: t.tools.colorExtractor.title,
+      description: t.tools.colorExtractor.desc,
+      icon: <Palette className="w-6 h-6" />,
+      category: 'CSS & UI',
+      color: 'indigo'
+    },
     {
       id: 'meta-gen',
       title: t.tools.metaGen.title,

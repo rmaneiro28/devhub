@@ -1,49 +1,39 @@
 
 import React, { useState } from 'react';
-import { Palette, Wand2, Copy, Check, Loader2 } from 'lucide-react';
-import { GoogleGenAI, Type } from '@google/genai';
+import { Palette, Wand2, Copy, Check, Loader2, RefreshCw } from 'lucide-react';
 
 const ColorLab: React.FC = () => {
-  const [prompt, setPrompt] = useState('Modern SaaS Dashboard');
   const [colors, setColors] = useState<string[]>(['#0f172a', '#1e293b', '#14b8a6', '#0d9488', '#f8fafc']);
   const [loading, setLoading] = useState(false);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
-  const generatePalette = async () => {
+  // Simple HSL to Hex helper
+  const hslToHex = (h: number, s: number, l: number) => {
+    l /= 100;
+    const a = s * Math.min(l, 1 - l) / 100;
+    const f = (n: number) => {
+      const k = (n + h / 30) % 12;
+      const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+      return Math.round(255 * color).toString(16).padStart(2, '0');
+    };
+    return `#${f(0)}${f(8)}${f(4)}`;
+  };
+
+  const generateRandomPalette = () => {
     setLoading(true);
-    try {
-      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-      if (!apiKey || apiKey.includes('PLACEHOLDER')) {
-        alert('Please set a valid VITE_GEMINI_API_KEY in .env.local');
-        return;
-      }
-      const ai = new GoogleGenAI({ apiKey });
-      const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: `Create a professional 5-color palette for: ${prompt}`,
-        config: {
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: Type.OBJECT,
-            properties: {
-              palette: {
-                type: Type.ARRAY,
-                items: { type: Type.STRING, description: "Hex color code" }
-              }
-            },
-            required: ["palette"]
-          }
-        }
-      });
-      const data = JSON.parse(response.text || '{"palette":[]}');
-      if (data.palette && data.palette.length >= 5) {
-        setColors(data.palette.slice(0, 5));
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
+    // Simulate thinking time for effect
+    setTimeout(() => {
+      const baseHue = Math.floor(Math.random() * 360);
+      const newColors = [
+        hslToHex(baseHue, 60, 10), // Darkest
+        hslToHex(baseHue, 50, 20),
+        hslToHex(baseHue, 70, 50), // Main
+        hslToHex((baseHue + 180) % 360, 70, 60), // Complementary/Accent
+        hslToHex(baseHue, 80, 95), // Lightest
+      ];
+      setColors(newColors);
       setLoading(false);
-    }
+    }, 500);
   };
 
   const copyColor = (color: string, index: number) => {
@@ -60,25 +50,18 @@ const ColorLab: React.FC = () => {
         </div>
         <div>
           <h3 className="text-xl font-bold text-slate-900 dark:text-white">Color Palette Lab</h3>
-          <p className="text-sm text-slate-500">AI-driven accessibility-first palettes</p>
+          <p className="text-sm text-slate-500">Algorithmic harmony generator</p>
         </div>
       </div>
 
-      <div className="flex gap-2 mb-8">
-        <input
-          type="text"
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          placeholder="Enter a mood or brand name..."
-          className="flex-grow px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
-        />
+      <div className="flex gap-2 mb-8 justify-center">
         <button
-          onClick={generatePalette}
+          onClick={generateRandomPalette}
           disabled={loading}
-          className="px-6 py-3 bg-teal-600 hover:bg-teal-500 text-white rounded-xl font-bold disabled:opacity-50 transition-all flex items-center gap-2"
+          className="px-8 py-3 bg-teal-600 hover:bg-teal-500 text-white rounded-xl font-bold disabled:opacity-50 transition-all flex items-center gap-2 shadow-lg shadow-teal-500/20"
         >
-          {loading ? <Loader2 className="animate-spin" size={20} /> : <Wand2 size={20} />}
-          Generate
+          {loading ? <Loader2 className="animate-spin" size={20} /> : <RefreshCw size={20} />}
+          Generate Random Harmony
         </button>
       </div>
 
@@ -100,6 +83,8 @@ const ColorLab: React.FC = () => {
 
       <div className="mt-4 flex justify-between text-[10px] font-bold text-slate-400 uppercase tracking-widest">
         <span>Darkest</span>
+        <span>Dark</span>
+        <span>Main</span>
         <span>Accent</span>
         <span>Lightest</span>
       </div>

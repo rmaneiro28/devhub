@@ -34,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onHomeClick }) => {
             <a href="#about" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {t.nav.about}
             </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+            <a href="https://github.com/rmaneiro28/devhub" target="_blank" rel="noreferrer" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               GitHub
             </a>
           </div>

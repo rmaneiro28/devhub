@@ -1,12 +1,15 @@
 
 import React from 'react';
 import { ArrowRight, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HeroProps {
   onStartClick?: () => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ onStartClick }) => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative pt-20 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -16,24 +19,23 @@ const Hero: React.FC<HeroProps> = ({ onStartClick }) => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
             </span>
-            New: SQL-to-CRUD with Gemini 3 Pro
+            {t.hero.badge}
           </div>
           <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
-            DevHub: Your Development <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">Swiss Army Knife</span>
+            DevHub: <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">{t.hero.subtitle.split('The ')[1] || t.hero.subtitle}</span>
           </h1>
           <p className="text-lg lg:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Eliminate context-switching. A minimalist dashboard that handles your SQL transformations, asset optimizations, and health checks in one high-performance interface.
+            {t.hero.description}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button 
+            <button
               onClick={onStartClick}
               className="w-full sm:w-auto px-8 py-4 text-lg font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-xl transition-all shadow-xl shadow-teal-500/30 flex items-center justify-center gap-2 group"
             >
-              Enter Workspace <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              {t.hero.start} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
             <button className="w-full sm:w-auto px-8 py-4 text-lg font-bold text-slate-900 dark:text-white bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all flex items-center justify-center gap-2">
-              View Documentation <ChevronRight size={20} />
+              {t.hero.documentation} <ChevronRight size={20} />
             </button>
           </div>
         </div>
@@ -65,12 +67,12 @@ const Hero: React.FC<HeroProps> = ({ onStartClick }) => {
                   </div>
                   <div className="flex-grow grid grid-cols-2 gap-4">
                     <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4 flex flex-col justify-between">
-                       <div className="space-y-2">
+                      <div className="space-y-2">
                         <div className="w-1/3 h-4 bg-teal-500/20 rounded"></div>
                         <div className="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded"></div>
                         <div className="w-2/3 h-2 bg-slate-200 dark:bg-slate-800 rounded"></div>
-                       </div>
-                       <div className="h-20 bg-teal-500/5 rounded-lg border border-teal-500/10"></div>
+                      </div>
+                      <div className="h-20 bg-teal-500/5 rounded-lg border border-teal-500/10"></div>
                     </div>
                     <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4 space-y-4">
                       <div className="w-full h-32 bg-slate-200 dark:bg-slate-800 rounded-lg animate-pulse"></div>

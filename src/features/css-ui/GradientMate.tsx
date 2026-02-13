@@ -145,14 +145,21 @@ const GradientMate: React.FC = () => {
                         <div className="space-y-4">
                             {stops.map((stop, index) => (
                                 <div key={stop.id} className="flex items-center gap-3 animate-fade-in group">
-                                    <div className="relative">
+                                    <div className="relative flex items-center gap-2">
+                                        <div className="relative w-10 h-10 rounded-lg overflow-hidden shadow-sm ring-1 ring-slate-200 dark:ring-slate-700">
+                                            <input
+                                                type="color"
+                                                value={stop.color}
+                                                onChange={(e) => updateStop(stop.id, { color: e.target.value })}
+                                                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] p-0 border-0 cursor-pointer"
+                                            />
+                                        </div>
                                         <input
-                                            type="color"
+                                            type="text"
                                             value={stop.color}
                                             onChange={(e) => updateStop(stop.id, { color: e.target.value })}
-                                            className="w-8 h-8 rounded-lg overflow-hidden cursor-pointer border-0 p-0"
+                                            className="w-20 px-2 py-1 text-xs font-mono border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 focus:ring-2 focus:ring-teal-500 outline-none uppercase"
                                         />
-                                        <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10 pointer-events-none" />
                                     </div>
 
                                     <div className="flex-grow">

@@ -22,12 +22,32 @@ export const translations = {
             about: 'About',
             contact: 'Contact',
         },
+
         hero: {
             title: 'DevHub',
             subtitle: 'The Ultimate Developer Toolkit',
             description: 'A curated collection of essential tools to streamline your web development workflow. From SQL mappers to CSS generators, everything you need is right here.',
-            start: 'Get Started',
+            start: 'Enter Workspace',
+            documentation: 'View Documentation',
+            badge: 'New: SQL-to-CRUD Converter',
             github: 'GitHub'
+        },
+        footer: {
+            tagline: 'Precision tools for high-performance engineering teams. Built by developers, for developers.',
+            platform: 'Platform',
+            company: 'Company',
+            integrations: 'Integrations',
+            tools: 'Tools Library',
+            docs: 'Documentation',
+            desktop: 'Desktop App',
+            extension: 'Extension',
+            about: 'About Us',
+            blog: 'Blog',
+            careers: 'Careers',
+            privacy: 'Privacy',
+            terms: 'Terms of Service',
+            status: 'Status',
+            copyright: '© 2026 DevHub Inc. All rights reserved.'
         },
         grid: {
             title: 'Developer Toolkit',
@@ -47,7 +67,7 @@ export const translations = {
                 input: 'input.sql',
                 output: 'output_bundle.ts',
                 transform: 'Transform Schema',
-                synthesizing: 'Synthesizing...'
+                synthesizing: 'Generating...'
             },
             assetOptimizer: {
                 title: 'Asset Optimizer',
@@ -61,7 +81,7 @@ export const translations = {
             },
             colorLab: {
                 title: 'Color Palette Lab',
-                desc: 'AI-driven color theory experiments. Generate accessible palettes.',
+                desc: 'Algorithmic color harmony generator. Generate accessible palettes.',
                 placeholder: 'Enter a mood or brand name...',
                 darkest: 'Darkest',
                 accent: 'Accent',
@@ -114,9 +134,60 @@ export const translations = {
                 title: 'Lorem Ipsum Pro',
                 desc: 'Generate placeholder text with formatting options.'
             },
+            // Batch 1: Code Utilities
+            diffViewer: {
+                title: 'Diff Viewer',
+                desc: 'Compare text or code changes line by line.'
+            },
+            base64: {
+                title: 'Base64 Converter',
+                desc: 'Encode and decode text strings instantly.'
+            },
+            uuidGen: {
+                title: 'UUID Generator',
+                desc: 'Generate UUIDs, NanoIDs, and unique identifiers.'
+            },
+            cronParser: {
+                title: 'Cron Jobs',
+                desc: 'Translate cron expressions into human-readable text.'
+            },
+            // Batch 2: Network
+            curlConverter: {
+                title: 'CURL to Code',
+                desc: 'Convert CURL commands to Fetch, Axios, or Python.'
+            },
+            httpStatus: {
+                title: 'HTTP Cats/Dogs',
+                desc: 'Visual guide to HTTP status codes with pets.'
+            },
+            // Batch 3: UI & Misc
+            gridGenerator: {
+                title: 'Grid Generator',
+                desc: 'Visual CSS Grid layout builder.'
+            },
+            keycodeInfo: {
+                title: 'Keycode Info',
+                desc: 'Instant JavaScript event keycodes.'
+            },
+            clipPath: {
+                title: 'Clip Path Maker',
+                desc: 'Create complex shapes with CSS clip-path.'
+            },
+            jsonToon: {
+                title: 'JSON to TOON',
+                desc: 'Convert JSON to Token-Oriented Object Notation to save LLM tokens.'
+            },
             markdownLive: {
                 title: 'Markdown Live',
                 desc: 'Real-time Markdown editor with preview and export.'
+            },
+            webAnalyzer: {
+                title: 'Web Analyzer',
+                desc: 'Analyze HTML for SEO, Accessibility, and Security issues.'
+            },
+            colorExtractor: {
+                title: 'Color Extractor',
+                desc: 'Extract color palettes from images or websites.'
             }
         }
     },
@@ -146,8 +217,27 @@ export const translations = {
             title: 'DevHub',
             subtitle: 'El Kit Definitivo para Desarrolladores',
             description: 'Una colección curada de herramientas esenciales para optimizar tu flujo de trabajo web. Desde mapeadores SQL hasta generadores CSS, todo lo que necesitas está aquí.',
-            start: 'Comenzar',
+            start: 'Entrar al Workspace',
+            documentation: 'Ver Documentación',
+            badge: 'Nuevo: Conversor SQL-a-CRUD',
             github: 'GitHub'
+        },
+        footer: {
+            tagline: 'Herramientas de precisión para equipos de ingeniería de alto rendimiento. Construido por desarrolladores, para desarrolladores.',
+            platform: 'Plataforma',
+            company: 'Compañía',
+            integrations: 'Integraciones',
+            tools: 'Biblioteca de Herramientas',
+            docs: 'Documentación',
+            desktop: 'App de Escritorio',
+            extension: 'Extensión',
+            about: 'Sobre Nosotros',
+            blog: 'Blog',
+            careers: 'Carreras',
+            privacy: 'Privacidad',
+            terms: 'Términos de Servicio',
+            status: 'Estado',
+            copyright: '© 2026 DevHub Inc. Todos los derechos reservados.'
         },
         grid: {
             title: 'Toolkit del Desarrollador',
@@ -167,7 +257,7 @@ export const translations = {
                 input: 'entrada.sql',
                 output: 'paquete_salida.ts',
                 transform: 'Transformar Esquema',
-                synthesizing: 'Sintetizando...'
+                synthesizing: 'Generando...'
             },
             assetOptimizer: {
                 title: 'Optimizador de Assets',
@@ -181,7 +271,7 @@ export const translations = {
             },
             colorLab: {
                 title: 'Laboratorio de Color',
-                desc: 'Experimentos de color con IA. Genera paletas accesibles.',
+                desc: 'Generador de armonía de color algorítmico. Genera paletas accesibles.',
                 placeholder: 'Ingresa un estado de animo o marca...',
                 darkest: 'Más Oscuro',
                 accent: 'Acento',
@@ -234,9 +324,60 @@ export const translations = {
                 title: 'Lorem Ipsum Pro',
                 desc: 'Genera texto de relleno con opciones de formato.'
             },
+            // Batch 1: Code Utilities
+            diffViewer: {
+                title: 'Visor de Diferencias',
+                desc: 'Compara cambios de texto o código línea por línea.'
+            },
+            base64: {
+                title: 'Conversor Base64',
+                desc: 'Codifica y decodifica cadenas de texto al instante.'
+            },
+            uuidGen: {
+                title: 'Generador UUID',
+                desc: 'Genera UUIDs, NanoIDs e identificadores únicos.'
+            },
+            cronParser: {
+                title: 'Trabajos Cron',
+                desc: 'Traduce expresiones cron a texto legible por humanos.'
+            },
+            // Batch 2: Network
+            curlConverter: {
+                title: 'CURL a Código',
+                desc: 'Convierte comandos CURL a Fetch, Axios o Python.'
+            },
+            httpStatus: {
+                title: 'Gatos/Perros HTTP',
+                desc: 'Guía visual de códigos de estado HTTP con mascotas.'
+            },
+            // Batch 3: UI & Misc
+            gridGenerator: {
+                title: 'Generador de Grid',
+                desc: 'Constructor visual de diseños CSS Grid.'
+            },
+            keycodeInfo: {
+                title: 'Info de Teclas',
+                desc: 'Códigos de teclas JavaScript instantáneos.'
+            },
+            clipPath: {
+                title: 'Creador Clip Path',
+                desc: 'Crea formas complejas con CSS clip-path.'
+            },
+            jsonToon: {
+                title: 'JSON a TOON',
+                desc: 'Convierte JSON a Notación de Objetos Orientada a Tokens para ahorrar tokens LLM.'
+            },
             markdownLive: {
                 title: 'Markdown en Vivo',
                 desc: 'Editor de Markdown en tiempo real con vista previa y exportación.'
+            },
+            webAnalyzer: {
+                title: 'Analizador Web',
+                desc: 'Analiza HTML en busca de problemas de SEO, Accesibilidad y Seguridad.'
+            },
+            colorExtractor: {
+                title: 'Extractor de Colores',
+                desc: 'Extrae paletas de colores de imágenes o sitios web.'
             }
         }
     }

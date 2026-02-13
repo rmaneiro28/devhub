@@ -27,6 +27,7 @@ import ClipPathMaker from './features/css-ui/ClipPathMaker';
 import MetaTagGenerator from './features/seo-content/MetaTagGenerator';
 import LoremIpsum from './features/seo-content/LoremIpsum';
 import MarkdownLive from './features/seo-content/MarkdownLive';
+import ColorExtractor from './features/color-extractor/ColorExtractor';
 import Footer from './components/layout/Footer';
 import { Theme } from './types';
 import { ArrowLeft } from 'lucide-react';
@@ -64,6 +65,8 @@ const ToolLayout: React.FC = () => {
       case 'meta-gen': return <MetaTagGenerator />;
       case 'lorem-ipsum': return <LoremIpsum />;
       case 'markdown-live': return <MarkdownLive />;
+      case 'web-analyzer': return <WebAnalyzer />;
+      case 'color-extractor': return <ColorExtractor />;
       default: return <div className="text-center py-20 text-slate-500">{t.common.toolNotImplemented}</div>;
     }
   };
@@ -94,6 +97,8 @@ const ToolLayout: React.FC = () => {
       case 'meta-gen': return t.tools.metaGen.title;
       case 'lorem-ipsum': return t.tools.loremIpsum.title;
       case 'markdown-live': return t.tools.markdownLive.title;
+      case 'web-analyzer': return t.tools.webAnalyzer.title;
+      case 'color-extractor': return t.tools.colorExtractor.title;
       default: return 'Tool';
     }
   };
