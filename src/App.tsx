@@ -27,7 +27,14 @@ import ClipPathMaker from './features/css-ui/ClipPathMaker';
 import MetaTagGenerator from './features/seo-content/MetaTagGenerator';
 import LoremIpsum from './features/seo-content/LoremIpsum';
 import MarkdownLive from './features/seo-content/MarkdownLive';
+import WebAnalyzer from './features/web-analyzer/WebAnalyzer';
 import ColorExtractor from './features/color-extractor/ColorExtractor';
+import Documentation from './features/docs/Documentation';
+import About from './pages/About';
+import Blog from './pages/Blog';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import Status from './pages/Status';
 import Footer from './components/layout/Footer';
 import { Theme } from './types';
 import { ArrowLeft } from 'lucide-react';
@@ -168,6 +175,12 @@ const AppContent: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tools" element={<Tools />} />
+          <Route path="/docs" element={<Documentation />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/status" element={<Status />} />
           <Route path="/tool/:id" element={<ToolLayout />} />
         </Routes>
       </main>

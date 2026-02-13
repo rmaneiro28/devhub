@@ -1,7 +1,8 @@
 
 import React from 'react';
-import { Github, Twitter, Linkedin, Zap } from 'lucide-react';
+import { Github, Twitter, Zap } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const { t } = useLanguage();
@@ -21,17 +22,16 @@ const Footer: React.FC = () => {
               {t.footer.tagline}
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-slate-400 hover:text-teal-500 transition-colors"><Github size={20} /></a>
-              <a href="#" className="text-slate-400 hover:text-teal-500 transition-colors"><Twitter size={20} /></a>
-              <a href="#" className="text-slate-400 hover:text-teal-500 transition-colors"><Linkedin size={20} /></a>
+              <a href="https://github.com/rmaneiro28/devhub" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-500 transition-colors"><Github size={20} /></a>
+              <a href="https://twitter.com/devhub" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-500 transition-colors"><Twitter size={20} /></a>
             </div>
           </div>
 
           <div>
             <h4 className="text-slate-900 dark:text-white font-bold mb-6 text-sm uppercase tracking-widest">{t.footer.platform}</h4>
             <ul className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
-              <li><a href="#" className="hover:text-teal-500 transition-colors">{t.footer.tools}</a></li>
-              <li><a href="#" className="hover:text-teal-500 transition-colors">{t.footer.docs}</a></li>
+              <li><Link to="/tools" className="hover:text-teal-500 transition-colors">{t.footer.tools}</Link></li>
+              <li><Link to="/docs" className="hover:text-teal-500 transition-colors">{t.footer.docs}</Link></li>
               <li><a href="#" className="hover:text-teal-500 transition-colors">{t.footer.desktop}</a></li>
               <li><a href="#" className="hover:text-teal-500 transition-colors">{t.footer.extension}</a></li>
             </ul>
@@ -40,10 +40,9 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-slate-900 dark:text-white font-bold mb-6 text-sm uppercase tracking-widest">{t.footer.company}</h4>
             <ul className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
-              <li><a href="#" className="hover:text-teal-500 transition-colors">{t.footer.about}</a></li>
-              <li><a href="#" className="hover:text-teal-500 transition-colors">{t.footer.blog}</a></li>
-              <li><a href="#" className="hover:text-teal-500 transition-colors">{t.footer.careers}</a></li>
-              <li><a href="#" className="hover:text-teal-500 transition-colors">{t.footer.privacy}</a></li>
+              <li><Link to="/about" className="hover:text-teal-500 transition-colors">{t.footer.about}</Link></li>
+              <li><Link to="/blog" className="hover:text-teal-500 transition-colors">{t.footer.blog}</Link></li>
+              <li><Link to="/privacy" className="hover:text-teal-500 transition-colors">{t.footer.privacy}</Link></li>
             </ul>
           </div>
 
@@ -54,7 +53,6 @@ const Footer: React.FC = () => {
               <span className="px-3 py-1 bg-slate-100 dark:bg-slate-900 rounded-full text-xs text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">Supabase</span>
               <span className="px-3 py-1 bg-slate-100 dark:bg-slate-900 rounded-full text-xs text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">TypeScript</span>
               <span className="px-3 py-1 bg-slate-100 dark:bg-slate-900 rounded-full text-xs text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">Next.js</span>
-              <span className="px-3 py-1 bg-slate-100 dark:bg-slate-900 rounded-full text-xs text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">Gemini AI</span>
             </div>
           </div>
         </div>
@@ -62,8 +60,8 @@ const Footer: React.FC = () => {
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-500">
           <p>{t.footer.copyright}</p>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-teal-500">{t.footer.terms}</a>
-            <a href="#" className="hover:text-teal-500">{t.footer.status}</a>
+            <Link to="/terms" className="hover:text-teal-500">{t.footer.terms}</Link>
+            <Link to="/status" className="hover:text-teal-500">{t.footer.status}</Link>
           </div>
         </div>
       </div>

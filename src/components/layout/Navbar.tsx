@@ -13,6 +13,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onHomeClick }) => {
   const { language, setLanguage, t } = useLanguage();
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800">
@@ -27,19 +28,23 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onHomeClick }) => {
             </span>
           </div>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <Link to="/tools" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {t.nav.features}
             </Link>
-            <a href="#about" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+            <Link to="/docs" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+              Docs
+            </Link>
+            <Link to="/about" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {t.nav.about}
-            </a>
+            </Link>
             <a href="https://github.com/rmaneiro28/devhub" target="_blank" rel="noreferrer" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               GitHub
             </a>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4">
             {/* Language Switcher */}
             <button
               onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
@@ -73,8 +78,88 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onHomeClick }) => {
               Workspace
             </button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <div className="flex md:hidden items-center gap-4">
+            <button
+              onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
+              className="p-2 text-slate-500 dark:text-slate-400"
+            >
+              <span className="text-xs font-bold uppercase">{language}</span>
+            </button>
+            <button
+              onClick={toggleTheme}
+              className="p-2 text-slate-500 dark:text-slate-400"
+            >
+              {theme === 'light' ? (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              )}
+            </button>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+            >
+              {isMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+              )}
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="md:hidden absolute top-16 left-0 w-full bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-xl animate-in slide-in-from-top-2">
+          <div className="px-4 py-6 space-y-4 flex flex-col">
+            <Link
+              to="/tools"
+              className="px-4 py-3 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t.nav.features}
+            </Link>
+            <Link
+              to="/docs"
+              className="px-4 py-3 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Docs
+            </Link>
+            <Link
+              to="/about"
+              className="px-4 py-3 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t.nav.about}
+            </Link>
+            <a
+              href="https://github.com/rmaneiro28/devhub"
+              target="_blank"
+              rel="noreferrer"
+              className="px-4 py-3 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              GitHub
+            </a>
+            <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
+              <button
+                onClick={() => { navigate('/tools'); setIsMenuOpen(false); }}
+                className="w-full px-5 py-3 text-center font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-xl transition-all shadow-lg"
+              >
+                Workspace
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

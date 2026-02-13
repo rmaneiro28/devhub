@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ArrowRight, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
 interface HeroProps {
@@ -34,9 +35,9 @@ const Hero: React.FC<HeroProps> = ({ onStartClick }) => {
             >
               {t.hero.start} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="w-full sm:w-auto px-8 py-4 text-lg font-bold text-slate-900 dark:text-white bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all flex items-center justify-center gap-2">
-              {t.hero.documentation} <ChevronRight size={20} />
-            </button>
+            <Link to="/docs" className="w-full sm:w-auto px-8 py-4 text-lg font-bold text-slate-900 dark:text-white bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all flex items-center justify-center gap-2">
+              {t.hero.documentation || "Documentation"} <ChevronRight size={20} />
+            </Link>
           </div>
         </div>
 
