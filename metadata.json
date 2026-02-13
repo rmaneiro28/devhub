@@ -1,0 +1,7 @@
+{
+  "name": "DevHub - All-in-One Developer Productivity",
+  "description": "An ultra-minimalist, professional productivity platform for web developers featuring SQL-to-CRUD generation, asset optimization, color palette tools, and website health monitoring.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
