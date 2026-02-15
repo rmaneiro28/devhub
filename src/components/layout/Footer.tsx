@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-16">
+    <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
@@ -43,6 +43,7 @@ const Footer: React.FC = () => {
               <li><Link to="/about" className="hover:text-teal-500 transition-colors">{t.footer.about}</Link></li>
               <li><Link to="/blog" className="hover:text-teal-500 transition-colors">{t.footer.blog}</Link></li>
               <li><Link to="/privacy" className="hover:text-teal-500 transition-colors">{t.footer.privacy}</Link></li>
+              <li><a href="https://github.com/rmaneiro28/devhub/issues/new" target="_blank" rel="noreferrer" className="hover:text-teal-500 transition-colors">Report Issue</a></li>
             </ul>
           </div>
 

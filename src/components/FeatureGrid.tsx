@@ -6,21 +6,31 @@ import { Link } from 'react-router-dom';
 import { getTools, Feature } from '../utils/toolsData';
 
 interface FeatureGridProps {
-  onSelectTool: (id: string) => void;
+  onSelectTool?: (id: string) => void;
+  tools?: Feature[];
+  showHeader?: boolean;
+  searchBar?: React.ReactNode;
 }
 
-type Category = 'All' | 'CSS & UI' | 'Data & Converters' | 'SEO & Content' | 'Images';
+type Category = 'All' | 'Design & UI' | 'Data Processing' | 'Development Tools' | 'Web & SEO' | 'Mobile & PWA' | 'Security & Encryption' | 'Productivity' | 'CSS & UI' | 'Data & Converters' | 'SEO & Content' | 'Images';
 
 
-const FeatureGrid: React.FC<FeatureGridProps> = ({ onSelectTool }) => {
+const FeatureGrid: React.FC<FeatureGridProps> = ({ onSelectTool, tools: propTools, showHeader = true, searchBar }) => {
   const { t } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState<string>('All'); // String type to match translation keys if needed, or keeping Category type and mapping
+  const [activeCategory, setActiveCategory] = useState<string>('All');
 
   // Re-creating features array here to use 't'
-  const features: Feature[] = getTools(t);
+  const features: Feature[] = propTools || getTools(t);
 
   const categories = [
     { id: 'All', label: t.grid.categories.all },
+    { id: 'Design & UI', label: 'Design & UI' },
+    { id: 'Data Processing', label: 'Data Processing' },
+    { id: 'Development Tools', label: 'Development Tools' },
+    { id: 'Web & SEO', label: 'Web & SEO' },
+    { id: 'Mobile & PWA', label: 'Mobile & PWA' },
+    { id: 'Security & Encryption', label: 'Security & Encryption' },
+    { id: 'Productivity', label: 'Productivity' },
     { id: 'CSS & UI', label: t.grid.categories.css },
     { id: 'Data & Converters', label: t.grid.categories.data },
     { id: 'SEO & Content', label: t.grid.categories.seo },
@@ -32,15 +42,26 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ onSelectTool }) => {
     : features.filter(f => f.category === activeCategory);
 
   return (
-    <section id="features" className="py-12 lg:py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+    <section id="features" className="py-12 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl mb-4">
-            {t.grid.title}
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8">
-            {t.grid.subtitle}
-          </p>
+          {showHeader && (
+            <>
+              <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl mb-4">
+                {t.grid.title}
+              </h2>
+              <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8">
+                {t.grid.subtitle}
+              </p>
+            </>
+          )}
+
+          {/* Search Bar Slot */}
+          {searchBar && (
+            <div className="mb-8 flex justify-center">
+              {searchBar}
+            </div>
+          )}
 
           {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-2 mb-8">

@@ -29,7 +29,7 @@ export const translations = {
             description: 'A curated collection of essential tools to streamline your web development workflow. From SQL mappers to CSS generators, everything you need is right here.',
             start: 'Enter Workspace',
             documentation: 'View Documentation',
-            badge: '25+ Tools Available',
+            badge: '40+ Tools Available',
             github: 'GitHub'
         },
         footer: {
@@ -349,7 +349,7 @@ export const translations = {
             description: 'Una colección curada de herramientas esenciales para optimizar tu flujo de trabajo web. Desde mapeadores SQL hasta generadores CSS, todo lo que necesitas está aquí.',
             start: 'Entrar al Workspace',
             documentation: 'Ver Documentación',
-            badge: 'Más de 25 Herramientas Disponibles',
+            badge: 'Más de 40 Herramientas Disponibles',
             github: 'GitHub'
         },
         footer: {

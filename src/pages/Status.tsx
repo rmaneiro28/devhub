@@ -6,7 +6,7 @@ const Status: React.FC = () => {
     const { t } = useLanguage();
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-20 pb-16">
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-900 pt-20 pb-16">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <div className="inline-flex items-center justify-center p-3 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-2xl mb-6">

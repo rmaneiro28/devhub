@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { Terminal, Copy, Check, Play, Loader2, Database } from 'lucide-react';
+import { useSqlMapper } from './useSqlMapper';
 
 const InteractiveDemo: React.FC = () => {
   const [sqlInput, setSqlInput] = useState(`CREATE TABLE users (
@@ -10,85 +10,14 @@ const InteractiveDemo: React.FC = () => {
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );`);
   const [output, setOutput] = useState('');
-  const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const { generateCode, loading } = useSqlMapper();
 
-  // Basic Regex Parser for CREATE TABLE
-  const generateCrud = async () => {
-    if (!sqlInput.trim()) return;
-    setLoading(true);
-
-    // Simulating processing time
-    setTimeout(() => {
-      try {
-        const tableNameMatch = sqlInput.match(/CREATE TABLE\s+(\w+)/i);
-        const tableName = tableNameMatch ? tableNameMatch[1] : 'Unknown';
-
-        // Extract columns
-        const columns: string[] = [];
-        const lines = sqlInput.split('\n');
-        lines.forEach(line => {
-          const match = line.trim().match(/^(\w+)\s+(\w+)/);
-          if (match && !line.toUpperCase().includes('PRIMARY KEY') && !line.toUpperCase().includes('CREATE TABLE')) {
-            // Very naive, but works for the demo
-            columns.push(`${match[1]}: ${mapSqlTypeToTs(match[2])};`);
-          }
-          // Handle inline definition like "id SERIAL PRIMARY KEY"
-          if (line.toUpperCase().includes('SERIAL') || line.toUpperCase().includes('INT')) {
-            const idMatch = line.trim().match(/^(\w+)/);
-            if (idMatch) columns.push(`${idMatch[1]}: number;`);
-          }
-        });
-
-        const interfaceName = tableName.charAt(0).toUpperCase() + tableName.slice(1).replace(/s$/, ''); // singularize roughly
-
-        const tsCode = `
-// Types
-interface ${interfaceName} {
-  ${columns.join('\n  ')}
-}
-
-// React Hook
-export const use${interfaceName} = () => {
-  const [data, setData] = React.useState<${interfaceName}[]>([]);
-  const [loading, setLoading] = React.useState(false);
-
-  const fetch${interfaceName}s = async () => {
-    setLoading(true);
-    const res = await fetch('/api/${tableName}');
-    setData(await res.json());
-    setLoading(false);
-  };
-
-  return { data, loading, refetch: fetch${interfaceName}s };
-};
-
-// Express Controller
-export const get${interfaceName}s = async (req: Request, res: Response) => {
-  try {
-    const result = await db.query('SELECT * FROM ${tableName}');
-    res.json(result.rows);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
-`;
-        setOutput(tsCode.trim());
-      } catch (err) {
-        setOutput('// Error parsing SQL. Please use standard CREATE TABLE syntax.');
-      } finally {
-        setLoading(false);
-      }
-    }, 800);
-  };
-
-  const mapSqlTypeToTs = (sqlType: string) => {
-    const type = sqlType.toUpperCase();
-    if (type.includes('INT') || type.includes('SERIAL') || type.includes('DECIMAL') || type.includes('NUMERIC')) return 'number';
-    if (type.includes('CHAR') || type.includes('TEXT')) return 'string';
-    if (type.includes('BOOL')) return 'boolean';
-    if (type.includes('TIMESTAMP') || type.includes('DATE')) return 'Date';
-    return 'any';
+  const handleGenerate = async () => {
+    const result = await generateCode(sqlInput);
+    if (result) {
+      setOutput(result);
+    }
   };
 
   const copyToClipboard = () => {
@@ -124,7 +53,7 @@ export const get${interfaceName}s = async (req: Request, res: Response) => {
               onChange={(e) => setSqlInput(e.target.value)}
             />
             <button
-              onClick={generateCrud}
+              onClick={handleGenerate}
               disabled={loading}
               className="mt-4 py-3 bg-teal-600 hover:bg-teal-500 disabled:bg-slate-800 text-white font-bold rounded-lg transition-all flex items-center justify-center gap-2"
             >

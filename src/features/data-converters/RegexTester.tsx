@@ -1,5 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import { Search, AlertCircle, CheckCircle2, Copy, Trash2, Info, BookOpen } from 'lucide-react';
+import { useRegexTester } from './useRegexTester';
 
 const COMMON_REGEXES = [
     { label: 'Email', pattern: '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}', desc: 'Standard email format' },
@@ -13,47 +14,17 @@ const COMMON_REGEXES = [
 ];
 
 const RegexTester: React.FC = () => {
-    const [regexStr, setRegexStr] = useState('');
-    const [flags, setFlags] = useState('gm');
-    const [testString, setTestString] = useState('Hello world! contact@example.com\nVisit https://example.com for more info.\nDate: 2024-05-20');
-
-    // Derived state for regex object and error
-    const { regex, error } = useMemo(() => {
-        if (!regexStr) return { regex: null, error: null };
-        try {
-            return { regex: new RegExp(regexStr, flags), error: null };
-        } catch (err: any) {
-            return { regex: null, error: err.message };
-        }
-    }, [regexStr, flags]);
-
-    // Calculate matches
-    const matches = useMemo(() => {
-        if (!regex || !testString) return [];
-
-        // Prevent infinite loops with empty matches if global flag is set
-        // but 'g' is usually enforced or handled.
-
-        const results = [];
-        let match;
-
-        // We need to clone the regex to ensure lastIndex is 0 if global
-        const r = new RegExp(regex.source, regex.flags);
-
-        if (!r.global) {
-            match = r.exec(testString);
-            if (match) results.push(match);
-        } else {
-            // Safety limit for very generic matches that might hang
-            let safety = 0;
-            while ((match = r.exec(testString)) !== null && safety < 1000) {
-                results.push(match);
-                if (match[0].length === 0) r.lastIndex++; // Avoid infinite loop on zero-length matches
-                safety++;
-            }
-        }
-        return results;
-    }, [regex, testString]);
+    const {
+        regexStr,
+        setRegexStr,
+        flags,
+        toggleFlag,
+        testString,
+        setTestString,
+        matches,
+        error,
+        regex
+    } = useRegexTester();
 
     // Highlight logic
     const renderHighlightedText = () => {
@@ -84,9 +55,7 @@ const RegexTester: React.FC = () => {
         return <div className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-slate-700 dark:text-slate-300">{elements}</div>;
     };
 
-    const toggleFlag = (flag: string) => {
-        setFlags(prev => prev.includes(flag) ? prev.replace(flag, '') : prev + flag);
-    };
+
 
     return (
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
