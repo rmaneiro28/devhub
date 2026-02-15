@@ -15,7 +15,7 @@ const BcryptGenerator: React.FC = () => {
         compareHash: compareHashValue,
         setCompareHash,
         compareResult,
-        compareHash
+        verifyHash
     } = useBcryptGenerator();
 
     const [copied, setCopied] = React.useState(false);
@@ -107,7 +107,7 @@ const BcryptGenerator: React.FC = () => {
                         />
                     </div>
                     <button
-                        onClick={compareHash}
+                        onClick={verifyHash}
                         className="w-full px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 flex items-center justify-center gap-2"
                     >
                         <Shield size={20} />

@@ -16,7 +16,7 @@ export const useBcryptGenerator = () => {
         setHash(hashed);
     };
 
-    const compareHash = async () => {
+    const verifyHash = async () => {
         if (!compareInput || !compareHash) return;
         const result = await bcrypt.compare(compareInput, compareHash);
         setCompareResult(result);
@@ -34,6 +34,6 @@ export const useBcryptGenerator = () => {
         compareHash,
         setCompareHash,
         compareResult,
-        compareHash: compareHash
+        verifyHash
     };
 };
