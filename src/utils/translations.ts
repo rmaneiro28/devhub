@@ -54,10 +54,10 @@ export const translations = {
             subtitle: 'Essential utilities for your daily workflow.',
             categories: {
                 all: 'All',
-                css: 'CSS & UI',
-                data: 'Data & Converters',
-                seo: 'SEO & Content',
-                images: 'Images'
+                devCore: 'Dev Core',
+                frontend: 'Frontend',
+                web: 'Web',
+                content: 'Content'
             }
         },
         tools: {
@@ -374,10 +374,10 @@ export const translations = {
             subtitle: 'Utilidades esenciales para tu flujo diario.',
             categories: {
                 all: 'Todas',
-                css: 'CSS y UI',
-                data: 'Datos y Conversores',
-                seo: 'SEO y Contenido',
-                images: 'Imágenes'
+                devCore: 'Dev Core',
+                frontend: 'Front-end',
+                web: 'Web',
+                content: 'Contenido'
             }
         },
         tools: {

@@ -11,7 +11,7 @@ import {
     Lock, Shield, Mail, Webhook, FileSearch
 } from 'lucide-react';
 
-export type Category = 'All' | 'Design & UI' | 'Data Processing' | 'Development Tools' | 'Web & SEO' | 'Mobile & PWA' | 'CSS & UI' | 'Data & Converters' | 'SEO & Content' | 'Images' | 'Security & Encryption' | 'Productivity';
+export type Category = 'All' | 'Dev Core' | 'Frontend' | 'Web' | 'Content';
 
 export interface Feature {
     id: string;
@@ -29,7 +29,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.diffViewer.title,
         description: t.tools.diffViewer.desc,
         icon: <GitCompare className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'orange'
     },
     {
@@ -37,7 +37,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.base64.title,
         description: t.tools.base64.desc,
         icon: <Binary className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'blue'
     },
     {
@@ -45,7 +45,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.uuidGen.title,
         description: t.tools.uuidGen.desc,
         icon: <Fingerprint className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'purple'
     },
     {
@@ -53,7 +53,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.cronParser.title,
         description: t.tools.cronParser.desc,
         icon: <Clock className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'red'
     },
 
@@ -63,7 +63,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.curlConverter.title,
         description: t.tools.curlConverter.desc,
         icon: <Terminal className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Web',
         color: 'indigo'
     },
     {
@@ -71,7 +71,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.httpStatus.title,
         description: t.tools.httpStatus.desc,
         icon: <Cat className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Web',
         color: 'amber'
     },
 
@@ -81,7 +81,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.sqlMapper.title,
         description: t.tools.sqlMapper.desc,
         icon: <Database className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'teal'
     },
     {
@@ -89,7 +89,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.colorLab.title,
         description: t.tools.colorLab.desc,
         icon: <Palette className="w-6 h-6" />,
-        category: 'CSS & UI',
+        category: 'Frontend',
         color: 'indigo'
     },
     // Images
@@ -98,7 +98,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.assetOptimizer.title,
         description: t.tools.assetOptimizer.desc,
         icon: <ImageIcon className="w-6 h-6" />,
-        category: 'Images',
+        category: 'Frontend',
         color: 'emerald'
     },
     // CSS & UI
@@ -107,7 +107,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.boxShadow.title,
         description: t.tools.boxShadow.desc,
         icon: <Layers className="w-6 h-6" />,
-        category: 'CSS & UI',
+        category: 'Frontend',
         color: 'violet'
     },
     {
@@ -115,7 +115,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.gradientMate.title,
         description: t.tools.gradientMate.desc,
         icon: <Wand2 className="w-6 h-6" />,
-        category: 'CSS & UI',
+        category: 'Frontend',
         color: 'pink'
     },
     {
@@ -123,7 +123,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.borderRadius.title,
         description: t.tools.borderRadius.desc,
         icon: <Box className="w-6 h-6" />,
-        category: 'CSS & UI',
+        category: 'Frontend',
         color: 'orange'
     },
     {
@@ -131,7 +131,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.unitConverter.title,
         description: t.tools.unitConverter.desc,
         icon: <Hash className="w-6 h-6" />,
-        category: 'CSS & UI',
+        category: 'Frontend',
         color: 'blue'
     },
     {
@@ -139,7 +139,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.gridGenerator.title,
         description: t.tools.gridGenerator.desc,
         icon: <LayoutGrid className="w-6 h-6" />,
-        category: 'CSS & UI',
+        category: 'Frontend',
         color: 'cyan'
     },
     {
@@ -147,7 +147,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.keycodeInfo.title,
         description: t.tools.keycodeInfo.desc,
         icon: <Keyboard className="w-6 h-6" />,
-        category: 'CSS & UI',
+        category: 'Frontend',
         color: 'lime'
     },
     {
@@ -155,7 +155,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.clipPath.title,
         description: t.tools.clipPath.desc,
         icon: <Scissors className="w-6 h-6" />,
-        category: 'CSS & UI',
+        category: 'Frontend',
         color: 'fuchsia'
     },
     // Data
@@ -164,7 +164,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.jsonTs.title,
         description: t.tools.jsonTs.desc,
         icon: <Code className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'sky'
     },
     {
@@ -172,7 +172,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.jsonToon.title,
         description: t.tools.jsonToon.desc,
         icon: <FileCode className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'pink'
     },
     {
@@ -180,7 +180,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.jwtDecoder.title,
         description: t.tools.jwtDecoder.desc,
         icon: <Key className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'amber'
     },
     {
@@ -188,7 +188,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.regexTester.title,
         description: t.tools.regexTester.desc,
         icon: <Search className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'rose'
     },
     // SEO & Content
@@ -197,7 +197,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.webAnalyzer.title,
         description: t.tools.webAnalyzer.desc,
         icon: <Search className="w-6 h-6" />,
-        category: 'SEO & Content',
+        category: 'Web',
         color: 'pink'
     },
     {
@@ -205,7 +205,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.colorExtractor.title,
         description: t.tools.colorExtractor.desc,
         icon: <Palette className="w-6 h-6" />,
-        category: 'CSS & UI',
+        category: 'Frontend',
         color: 'indigo'
     },
     {
@@ -213,7 +213,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.metaGen.title,
         description: t.tools.metaGen.desc,
         icon: <Globe className="w-6 h-6" />,
-        category: 'SEO & Content',
+        category: 'Web',
         color: 'cyan'
     },
     {
@@ -221,7 +221,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.loremIpsum.title,
         description: t.tools.loremIpsum.desc,
         icon: <Type className="w-6 h-6" />,
-        category: 'SEO & Content',
+        category: 'Content',
         color: 'slate'
     },
     {
@@ -229,7 +229,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.markdownLive.title,
         description: t.tools.markdownLive.desc,
         icon: <FileText className="w-6 h-6" />,
-        category: 'SEO & Content',
+        category: 'Content',
         color: 'zinc'
     },
     {
@@ -237,7 +237,7 @@ export const getTools = (t: any): Feature[] => [
         title: "JSON Formatter",
         description: "Format, validate, and minify JSON data",
         icon: <FileCode className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'indigo'
     },
     {
@@ -245,7 +245,7 @@ export const getTools = (t: any): Feature[] => [
         title: "URL Encoder",
         description: "Encode and decode URLs efficiently",
         icon: <Globe className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'purple'
     },
     {
@@ -253,7 +253,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Hash Generator",
         description: "Generate MD5, SHA-1, SHA-256, SHA-512 hashes",
         icon: <Fingerprint className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'blue'
     },
     {
@@ -261,7 +261,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Password Generator",
         description: "Create secure random passwords",
         icon: <Key className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'green'
     },
     {
@@ -269,7 +269,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Case Converter",
         description: "Convert text between different cases",
         icon: <Type className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'pink'
     },
     {
@@ -277,7 +277,7 @@ export const getTools = (t: any): Feature[] => [
         title: "QR Code Generator",
         description: "Generate and download QR codes",
         icon: <Box className="w-6 h-6" />,
-        category: 'Images',
+        category: 'Frontend',
         color: 'slate'
     },
     {
@@ -285,7 +285,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Unix Timestamp",
         description: "Convert between epoch and human dates",
         icon: <Clock className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'red'
     },
     {
@@ -293,7 +293,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Image Compressor",
         description: "Compress and resize images",
         icon: <ImageIcon className="w-6 h-6" />,
-        category: 'Images',
+        category: 'Frontend',
         color: 'purple'
     },
     {
@@ -301,7 +301,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Placeholder Generator",
         description: "Create custom placeholder images",
         icon: <ImagePlus className="w-6 h-6" />,
-        category: 'Images',
+        category: 'Frontend',
         color: 'amber'
     },
     {
@@ -309,7 +309,7 @@ export const getTools = (t: any): Feature[] => [
         title: "HTML Encoder",
         description: "Encode and decode HTML entities",
         icon: <Code2 className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'orange'
     },
     {
@@ -317,7 +317,7 @@ export const getTools = (t: any): Feature[] => [
         title: "SQL Formatter",
         description: "Format and minify SQL queries",
         icon: <Database className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'cyan'
     },
     {
@@ -325,7 +325,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Random Data Generator",
         description: "Generate fake data for testing",
         icon: <Shuffle className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'violet'
     },
     {
@@ -333,7 +333,7 @@ export const getTools = (t: any): Feature[] => [
         title: "PDF Merger",
         description: "Combine multiple PDF files into one",
         icon: <FileText className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'red'
     },
     {
@@ -341,7 +341,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Images to PDF",
         description: "Convert images to PDF document",
         icon: <FileImage className="w-6 h-6" />,
-        category: 'Images',
+        category: 'Frontend',
         color: 'indigo'
     },
     {
@@ -349,7 +349,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Image ↔ Base64",
         description: "Convert images to Base64 and back",
         icon: <ImageIcon className="w-6 h-6" />,
-        category: 'Images',
+        category: 'Frontend',
         color: 'teal'
     },
     {
@@ -357,7 +357,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Markdown to HTML",
         description: "Convert Markdown to HTML",
         icon: <FileCode className="w-6 h-6" />,
-        category: 'SEO & Content',
+        category: 'Content',
         color: 'blue'
     },
     {
@@ -365,7 +365,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Word Counter",
         description: "Count words, characters, reading time",
         icon: <FileText className="w-6 h-6" />,
-        category: 'SEO & Content',
+        category: 'Content',
         color: 'emerald'
     },
     {
@@ -373,7 +373,7 @@ export const getTools = (t: any): Feature[] => [
         title: "JSON ↔ YAML",
         description: "Convert between JSON and YAML",
         icon: <Code className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'yellow'
     },
     {
@@ -381,7 +381,7 @@ export const getTools = (t: any): Feature[] => [
         title: "CSV ↔ JSON",
         description: "Convert between CSV and JSON",
         icon: <Table className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'lime'
     },
     {
@@ -389,7 +389,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Citation Generator",
         description: "Generate academic citations (APA, MLA, Chicago, IEEE, etc.)",
         icon: <BookOpen className="w-6 h-6" />,
-        category: 'SEO & Content',
+        category: 'Content',
         color: 'blue'
     },
     // Design & UI Tools
@@ -398,7 +398,7 @@ export const getTools = (t: any): Feature[] => [
         title: "SVG to Component",
         description: "Convert SVG to React, Vue, or Angular components",
         icon: <FileCode className="w-6 h-6" />,
-        category: 'Design & UI',
+        category: 'Frontend',
         color: 'purple'
     },
     {
@@ -406,7 +406,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Favicon Generator",
         description: "Generate favicons in all required sizes",
         icon: <ImageIcon className="w-6 h-6" />,
-        category: 'Design & UI',
+        category: 'Frontend',
         color: 'green'
     },
     {
@@ -414,7 +414,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Typography Scale",
         description: "Generate harmonious typography scales",
         icon: <Type className="w-6 h-6" />,
-        category: 'Design & UI',
+        category: 'Frontend',
         color: 'indigo'
     },
     {
@@ -422,7 +422,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Accessibility Checker",
         description: "Check color contrast for WCAG compliance",
         icon: <Eye className="w-6 h-6" />,
-        category: 'Design & UI',
+        category: 'Frontend',
         color: 'pink'
     },
     // Data Processing Tools
@@ -431,7 +431,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Excel to JSON",
         description: "Convert Excel/CSV files to JSON format",
         icon: <FileSpreadsheet className="w-6 h-6" />,
-        category: 'Data Processing',
+        category: 'Dev Core',
         color: 'emerald'
     },
     {
@@ -439,7 +439,7 @@ export const getTools = (t: any): Feature[] => [
         title: "XML/JSON Converter",
         description: "Bidirectional conversion between XML and JSON",
         icon: <Code className="w-6 h-6" />,
-        category: 'Data Processing',
+        category: 'Dev Core',
         color: 'orange'
     },
     {
@@ -447,7 +447,7 @@ export const getTools = (t: any): Feature[] => [
         title: "API Mock Generator",
         description: "Generate realistic mock data for API testing",
         icon: <Wand2 className="w-6 h-6" />,
-        category: 'Data Processing',
+        category: 'Dev Core',
         color: 'violet'
     },
     {
@@ -455,7 +455,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Data Visualizer",
         description: "Create charts from JSON or CSV data",
         icon: <BarChart3 className="w-6 h-6" />,
-        category: 'Data Processing',
+        category: 'Dev Core',
         color: 'cyan'
     },
     // Development Tools
@@ -464,7 +464,7 @@ export const getTools = (t: any): Feature[] => [
         title: ".gitignore Generator",
         description: "Create .gitignore files for your projects",
         icon: <GitCompare className="w-6 h-6" />,
-        category: 'Development Tools',
+        category: 'Dev Core',
         color: 'red'
     },
     {
@@ -472,7 +472,7 @@ export const getTools = (t: any): Feature[] => [
         title: "package.json Generator",
         description: "Create package.json files interactively",
         icon: <Package className="w-6 h-6" />,
-        category: 'Development Tools',
+        category: 'Dev Core',
         color: 'blue'
     },
     {
@@ -480,7 +480,7 @@ export const getTools = (t: any): Feature[] => [
         title: "License Generator",
         description: "Generate open source licenses for your projects",
         icon: <FileText className="w-6 h-6" />,
-        category: 'Development Tools',
+        category: 'Dev Core',
         color: 'teal'
     },
     // Web & SEO Tools
@@ -489,7 +489,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Meta Tags Generator",
         description: "Generate SEO and social media meta tags",
         icon: <Globe className="w-6 h-6" />,
-        category: 'Web & SEO',
+        category: 'Web',
         color: 'blue'
     },
     {
@@ -497,7 +497,7 @@ export const getTools = (t: any): Feature[] => [
         title: "robots.txt Generator",
         description: "Control search engine crawlers",
         icon: <Bot className="w-6 h-6" />,
-        category: 'Web & SEO',
+        category: 'Web',
         color: 'slate'
     },
     {
@@ -505,7 +505,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Sitemap Generator",
         description: "Create XML sitemaps for search engines",
         icon: <Map className="w-6 h-6" />,
-        category: 'Web & SEO',
+        category: 'Web',
         color: 'green'
     },
     // Mobile & PWA
@@ -514,7 +514,7 @@ export const getTools = (t: any): Feature[] => [
         title: "PWA Manifest Generator",
         description: "Create manifest.json for Progressive Web Apps",
         icon: <Smartphone className="w-6 h-6" />,
-        category: 'Mobile & PWA',
+        category: 'Web',
         color: 'purple'
     },
     // Design & UI
@@ -523,7 +523,7 @@ export const getTools = (t: any): Feature[] => [
         title: "CSS Animation Generator",
         description: "Create custom CSS keyframe animations",
         icon: <Wand2 className="w-6 h-6" />,
-        category: 'Design & UI',
+        category: 'Frontend',
         color: 'pink'
     },
     // Formatters
@@ -532,7 +532,7 @@ export const getTools = (t: any): Feature[] => [
         title: "DAX Formatter",
         description: "Format and beautify Power BI DAX code",
         icon: <Database className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Dev Core',
         color: 'amber'
     },
     // Security & Encryption
@@ -541,7 +541,7 @@ export const getTools = (t: any): Feature[] => [
         title: "JWT Generator",
         description: "Generate and verify JSON Web Tokens",
         icon: <Key className="w-6 h-6" />,
-        category: 'Security & Encryption',
+        category: 'Dev Core',
         color: 'indigo'
     },
     {
@@ -549,7 +549,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Bcrypt Generator",
         description: "Generate and verify bcrypt password hashes",
         icon: <Lock className="w-6 h-6" />,
-        category: 'Security & Encryption',
+        category: 'Dev Core',
         color: 'purple'
     },
     {
@@ -557,7 +557,7 @@ export const getTools = (t: any): Feature[] => [
         title: "CORS Tester",
         description: "Test Cross-Origin Resource Sharing configurations",
         icon: <Globe className="w-6 h-6" />,
-        category: 'Security & Encryption',
+        category: 'Web',
         color: 'teal'
     },
     // Development Tools (additional)
@@ -566,7 +566,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Environment Variables Manager",
         description: "Manage and export environment variables",
         icon: <FileCode className="w-6 h-6" />,
-        category: 'Development Tools',
+        category: 'Dev Core',
         color: 'blue'
     },
     {
@@ -574,7 +574,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Changelog Generator",
         description: "Generate changelogs following Keep a Changelog format",
         icon: <BookOpen className="w-6 h-6" />,
-        category: 'Development Tools',
+        category: 'Dev Core',
         color: 'green'
     },
     {
@@ -582,7 +582,7 @@ export const getTools = (t: any): Feature[] => [
         title: "SQL Query Builder",
         description: "Build SQL queries visually",
         icon: <Database className="w-6 h-6" />,
-        category: 'Development Tools',
+        category: 'Dev Core',
         color: 'cyan'
     },
     {
@@ -590,7 +590,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Code Snippet Manager",
         description: "Save and organize code snippets",
         icon: <Code2 className="w-6 h-6" />,
-        category: 'Development Tools',
+        category: 'Dev Core',
         color: 'orange'
     },
     // Productivity
@@ -599,7 +599,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Pomodoro Timer",
         description: "Stay focused with the Pomodoro Technique",
         icon: <Clock className="w-6 h-6" />,
-        category: 'Productivity',
+        category: 'Content',
         color: 'red'
     },
     {
@@ -607,7 +607,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Regex Cheat Sheet",
         description: "Test regex patterns with reference guide",
         icon: <FileSearch className="w-6 h-6" />,
-        category: 'Productivity',
+        category: 'Dev Core',
         color: 'violet'
     },
     {
@@ -615,7 +615,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Webhook Tester",
         description: "Test and debug webhook requests",
         icon: <Webhook className="w-6 h-6" />,
-        category: 'Productivity',
+        category: 'Web',
         color: 'emerald'
     },
     // Web & SEO (additional)
@@ -624,7 +624,7 @@ export const getTools = (t: any): Feature[] => [
         title: "Email Template Builder",
         description: "Create responsive HTML email templates",
         icon: <Mail className="w-6 h-6" />,
-        category: 'Web & SEO',
+        category: 'Web',
         color: 'pink'
     },
     // Mobile & PWA (additional)
@@ -633,7 +633,7 @@ export const getTools = (t: any): Feature[] => [
         title: "App Icon Generator",
         description: "Generate app icons for iOS and Android",
         icon: <Smartphone className="w-6 h-6" />,
-        category: 'Mobile & PWA',
+        category: 'Web',
         color: 'blue'
     },
     // Utils
@@ -642,7 +642,7 @@ export const getTools = (t: any): Feature[] => [
         title: t.tools.healthMonitor.title,
         description: t.tools.healthMonitor.desc,
         icon: <Activity className="w-6 h-6" />,
-        category: 'Data & Converters',
+        category: 'Web',
         color: 'teal'
     }
 ];

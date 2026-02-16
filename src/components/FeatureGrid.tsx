@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-// Icons are now imported in toolsData.tsx
 import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
-
 import { getTools, Feature } from '../utils/toolsData';
 
 interface FeatureGridProps {
@@ -12,29 +10,18 @@ interface FeatureGridProps {
   searchBar?: React.ReactNode;
 }
 
-type Category = 'All' | 'Design & UI' | 'Data Processing' | 'Development Tools' | 'Web & SEO' | 'Mobile & PWA' | 'Security & Encryption' | 'Productivity' | 'CSS & UI' | 'Data & Converters' | 'SEO & Content' | 'Images';
-
-
 const FeatureGrid: React.FC<FeatureGridProps> = ({ onSelectTool, tools: propTools, showHeader = true, searchBar }) => {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>('All');
 
-  // Re-creating features array here to use 't'
   const features: Feature[] = propTools || getTools(t);
 
   const categories = [
     { id: 'All', label: t.grid.categories.all },
-    { id: 'Design & UI', label: 'Design & UI' },
-    { id: 'Data Processing', label: 'Data Processing' },
-    { id: 'Development Tools', label: 'Development Tools' },
-    { id: 'Web & SEO', label: 'Web & SEO' },
-    { id: 'Mobile & PWA', label: 'Mobile & PWA' },
-    { id: 'Security & Encryption', label: 'Security & Encryption' },
-    { id: 'Productivity', label: 'Productivity' },
-    { id: 'CSS & UI', label: t.grid.categories.css },
-    { id: 'Data & Converters', label: t.grid.categories.data },
-    { id: 'SEO & Content', label: t.grid.categories.seo },
-    { id: 'Images', label: t.grid.categories.images }
+    { id: 'Dev Core', label: t.grid.categories.devCore },
+    { id: 'Frontend', label: t.grid.categories.frontend },
+    { id: 'Web', label: t.grid.categories.web },
+    { id: 'Content', label: t.grid.categories.content }
   ];
 
   const filteredFeatures = activeCategory === 'All'
@@ -56,14 +43,12 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ onSelectTool, tools: propTool
             </>
           )}
 
-          {/* Search Bar Slot */}
           {searchBar && (
             <div className="mb-8 flex justify-center">
               {searchBar}
             </div>
           )}
 
-          {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {categories.map((cat) => (
               <button
@@ -89,10 +74,9 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ onSelectTool, tools: propTool
               className="group relative p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col h-full"
             >
               <div
-                className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 group-hover:rotate-3 shadow-inner`}
+                className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 group-hover:rotate-3 shadow-inner"
                 style={{ backgroundColor: `color-mix(in srgb, var(--${feature.color}-500), transparent 90%)`, color: `var(--${feature.color}-600)` }}
               >
-                {/* Fallback color style since tailwind dynamic classes might not work without safelist, using inline style for bg tint */}
                 <div className={`text-${feature.color}-600 dark:text-${feature.color}-400`}>
                   {feature.icon}
                 </div>
@@ -108,7 +92,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ onSelectTool, tools: propTool
 
               <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-100 dark:border-slate-800">
                 <span className="text-xs font-mono font-medium text-slate-400 uppercase tracking-wider">
-                  {feature.category === 'CSS & UI' ? 'UI' : feature.category.split(' ')[0]}
+                  {feature.category}
                 </span>
                 <span className="text-teal-600 dark:text-teal-400 text-xs font-bold group-hover:translate-x-1 transition-transform">
                   {t.common.launch} &rarr;
